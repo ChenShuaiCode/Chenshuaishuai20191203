@@ -10,6 +10,7 @@ import com.bawei.chenshuaishuai20191203.R;
 import com.bawei.chenshuaishuai20191203.base.BaseFragment;
 import com.bawei.chenshuaishuai20191203.contract.IShopcontract;
 import com.bawei.chenshuaishuai20191203.modle.bean.Bean;
+import com.bawei.chenshuaishuai20191203.presenter.IShopPresenter;
 import com.bawei.chenshuaishuai20191203.utils.NetUtils;
 import com.bawei.chenshuaishuai20191203.view.activity.MainActivity;
 import com.bawei.chenshuaishuai20191203.view.adapter.Adapter;
@@ -21,6 +22,7 @@ public class ShopingCartFragment extends BaseFragment implements IShopcontract.i
 
     private Button tiao;
     private GridView listView;
+    private IShopPresenter presenter;
 
     @Override
     protected void initview(View inflate) {
@@ -41,7 +43,7 @@ public class ShopingCartFragment extends BaseFragment implements IShopcontract.i
 
     @Override
     protected void initdata() {
-        NetUtils.getInstance().getjson("http://blog.zhaoliang5156.cn/api/mall/mall.json", new NetUtils.MyCallBack() {
+        /*NetUtils.getInstance().getjson("http://blog.zhaoliang5156.cn/api/mall/mall.json", new NetUtils.MyCallBack() {
             @Override
             public void getjson(String json) {
                 Log.e("TAG",json);
@@ -49,10 +51,25 @@ public class ShopingCartFragment extends BaseFragment implements IShopcontract.i
                 List<Bean.ShopGridDataBean> shopGridData = bean.getShopGridData();
                 listView.setAdapter(new Adapter(shopGridData));
             }
-        });
+        });*/
+        presenter = new IShopPresenter(this);
+        if (hasnet(getActivity())){
+            presenter.getdata("http://blog.zhaoliang5156.cn/api/mall/mall.json");
+        }
+
+
     }
+
+
     @Override
-    public void suecc(Bean bean) {
+    public void success(Bean bean) {
+        List<Bean.ShopGridDataBean> shopGridData = bean.getShopGridData();
+        listView.setAdapter(new Adapter(shopGridData));
+
+    }
+
+    @Override
+    public void failure(Throwable throwable) {
 
     }
 }

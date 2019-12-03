@@ -6,15 +6,16 @@ public interface IShopcontract {
     interface imodle{
         void getdata(String url,ModleCallBack modleCallBack);
         interface ModleCallBack{
-            void getmodle(Bean bean);
+            void success(Bean bean);
         }
     }
-    interface  presenter{
-        void suecc(Bean bean);
-        void thow(Throwable throwable);
-    }
     interface iview{
-        void suecc(Bean bean);
+        void success(Bean bean);
+        void failure(Throwable throwable);
+    }
+
+    interface  presenter{
+        void getdata(String url);
     }
 
 
