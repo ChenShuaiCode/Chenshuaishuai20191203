@@ -1,5 +1,8 @@
 package com.bawei.chenshuaishuai20191203.base;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,4 +33,14 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected abstract void initdata();
+
+    public boolean hasnet(Context context){
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo!=null&&activeNetworkInfo.isAvailable()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

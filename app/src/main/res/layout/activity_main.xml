@@ -31,9 +31,33 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/select"
+            android:background="@drawable/sele1"
             android:button="@null"
             android:id="@+id/btn_2"></RadioButton>
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/sele2"
+            android:button="@null"
+            android:id="@+id/btn_3"></RadioButton>
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/select"
+            android:button="@null"
+            android:id="@+id/btn_4"></RadioButton>
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/sele3"
+            android:button="@null"
+            android:id="@+id/btn_5"></RadioButton>
     </RadioGroup>
 
 </LinearLayout>

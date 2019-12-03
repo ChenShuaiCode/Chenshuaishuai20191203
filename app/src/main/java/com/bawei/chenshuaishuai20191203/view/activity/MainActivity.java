@@ -1,18 +1,16 @@
 package com.bawei.chenshuaishuai20191203.view.activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
 import android.widget.RadioGroup;
 
 import com.bawei.chenshuaishuai20191203.R;
 import com.bawei.chenshuaishuai20191203.base.BaseActivity;
-import com.bawei.chenshuaishuai20191203.view.fragment.HomeFragment;
-import com.bawei.chenshuaishuai20191203.view.fragment.ShopFragment;
+import com.bawei.chenshuaishuai20191203.view.fragment.OtherFragment;
+import com.bawei.chenshuaishuai20191203.view.fragment.ShopingCartFragment;
 
 import java.util.ArrayList;
 
@@ -25,8 +23,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initdata() {
         list=new ArrayList<>();
-        list.add(new HomeFragment());
-        list.add(new ShopFragment());
+        list.add(new OtherFragment());
+        list.add(new OtherFragment());
+        list.add(new OtherFragment());
+        list.add(new ShopingCartFragment());
+        list.add(new OtherFragment());
 
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @NonNull
@@ -59,6 +60,15 @@ public class MainActivity extends BaseActivity {
                     case 1:
                         radioGroup.check(R.id.btn_2);
                         break;
+                    case 2:
+                        radioGroup.check(R.id.btn_3);
+                        break;
+                    case 3:
+                        radioGroup.check(R.id.btn_4);
+                        break;
+                    case 4:
+                        radioGroup.check(R.id.btn_5);
+                        break;
                 }
             }
             @Override
@@ -74,6 +84,15 @@ public class MainActivity extends BaseActivity {
                         break;
                     case R.id.btn_2:
                         viewPager.setCurrentItem(1);
+                        break;
+                    case R.id.btn_3:
+                        viewPager.setCurrentItem(2);
+                        break;
+                    case R.id.btn_4:
+                        viewPager.setCurrentItem(3);
+                        break;
+                    case R.id.btn_5:
+                        viewPager.setCurrentItem(4);
                         break;
                 }
             }

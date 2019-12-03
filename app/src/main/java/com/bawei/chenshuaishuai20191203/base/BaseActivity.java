@@ -1,5 +1,8 @@
 package com.bawei.chenshuaishuai20191203.base;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -19,4 +22,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initview();
 
     protected abstract int layoutid();
+
+    public boolean hasnet(Context context){
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo!=null&&activeNetworkInfo.isAvailable()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
