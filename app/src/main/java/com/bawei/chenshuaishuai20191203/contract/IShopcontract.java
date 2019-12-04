@@ -9,13 +9,15 @@ public interface IShopcontract {
             void success(Bean bean);
         }
     }
+
+
     interface iview{
         void success(Bean bean);
         void failure(Throwable throwable);
     }
 
     interface  presenter{
-        void getdata(String url);
+        void getdata(String bean);
     }
 
 

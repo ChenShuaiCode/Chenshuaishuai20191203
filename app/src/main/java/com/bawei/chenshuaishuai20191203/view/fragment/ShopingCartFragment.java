@@ -40,7 +40,6 @@ public class ShopingCartFragment extends BaseFragment implements IShopcontract.i
     protected int layoutid() {
         return R.layout.shop_fragmetn_layout;
     }
-
     @Override
     protected void initdata() {
         /*NetUtils.getInstance().getjson("http://blog.zhaoliang5156.cn/api/mall/mall.json", new NetUtils.MyCallBack() {
@@ -56,20 +55,13 @@ public class ShopingCartFragment extends BaseFragment implements IShopcontract.i
         if (hasnet(getActivity())){
             presenter.getdata("http://blog.zhaoliang5156.cn/api/mall/mall.json");
         }
-
-
     }
-
-
     @Override
     public void success(Bean bean) {
         List<Bean.ShopGridDataBean> shopGridData = bean.getShopGridData();
         listView.setAdapter(new Adapter(shopGridData));
-
     }
-
     @Override
     public void failure(Throwable throwable) {
-
     }
 }
