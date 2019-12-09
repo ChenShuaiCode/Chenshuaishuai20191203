@@ -42,15 +42,6 @@ public class ShopingCartFragment extends BaseFragment implements IShopcontract.i
     }
     @Override
     protected void initdata() {
-        /*NetUtils.getInstance().getjson("http://blog.zhaoliang5156.cn/api/mall/mall.json", new NetUtils.MyCallBack() {
-            @Override
-            public void getjson(String json) {
-                Log.e("TAG",json);
-                Bean bean = new Gson().fromJson(json, Bean.class);
-                List<Bean.ShopGridDataBean> shopGridData = bean.getShopGridData();
-                listView.setAdapter(new Adapter(shopGridData));
-            }
-        });*/
         presenter = new IShopPresenter(this);
         if (hasnet(getActivity())){
             presenter.getdata("http://blog.zhaoliang5156.cn/api/mall/mall.json");
@@ -60,6 +51,9 @@ public class ShopingCartFragment extends BaseFragment implements IShopcontract.i
     public void success(Bean bean) {
         List<Bean.ShopGridDataBean> shopGridData = bean.getShopGridData();
         listView.setAdapter(new Adapter(shopGridData));
+
+
+
     }
     @Override
     public void failure(Throwable throwable) {

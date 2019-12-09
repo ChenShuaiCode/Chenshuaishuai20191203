@@ -20,6 +20,12 @@ public class IShopPresenter implements IShopcontract.presenter {
             public void success(Bean bean) {
                 iview.success(bean);
             }
+
+            @Override
+            public void failure(Throwable throwable) {
+                iview.failure(throwable);
+
+            }
         });
 
     }
